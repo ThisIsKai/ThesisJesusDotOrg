@@ -39,6 +39,8 @@ public class SliderMovementScript : MonoBehaviour {  // SLIDER MOVEMENT SCRIPT: 
     //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
     private void FixedUpdate()
     {
+        if (GameManager.Instance.lives <= 0)
+            return;
         //**********************LEFT PLAYER**************************
         if (leftFalseRightTrue == false) // IF LEFT PLAYER
         {

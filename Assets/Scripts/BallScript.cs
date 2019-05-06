@@ -14,7 +14,18 @@ public class BallScript : MonoBehaviour {   //  BALL SCRIPT: {ATTACHED TO BALL}
     public float drag_TuningVal;                    // a value for tuning/modifying the drag force on the ball
     public float boardWidth;                        // the width (in world space units) of the board
     public float bounce_TuningVal;
+    private Vector3 startPos_Ball;
+    private Vector3 startPos_L_Slider;
+    private Vector3 startPos_R_Slider;
 
+
+    private void Start()
+    {
+        startPos_Ball = transform.position;
+        startPos_L_Slider = leftSliderforBall.position;
+        startPos_R_Slider = rightSliderforBall.position;
+
+}
     private void FixedUpdate()
     {
         MoveBallWithSimulatedPhysics();
@@ -22,7 +33,8 @@ public class BallScript : MonoBehaviour {   //  BALL SCRIPT: {ATTACHED TO BALL}
 
     private void MoveBallWithSimulatedPhysics()
     {
-
+        if (GameManager.Instance.lives == 0)
+            return;
         ball_Accel = accel_TuningVal * (leftSliderforBall.position.y - rightSliderforBall.position.y);          // calculation of the ball's acceleration
         ball_Veloc += (ball_Accel - Mathf.Sign(ball_Veloc) * (drag_TuningVal * (ball_Veloc * ball_Veloc))) * Time.fixedDeltaTime;
 
@@ -70,11 +82,23 @@ public class BallScript : MonoBehaviour {   //  BALL SCRIPT: {ATTACHED TO BALL}
     public void OnTriggerEnter(Collider other)
     {
         ball_Veloc = -ball_Veloc*bounce_TuningVal;
+        if (other.gameObject.tag == "Hole")
+        {
+            GameManager.Instance.lives--;
+            if (GameManager.Instance.lives == 0)
+                return;
+            transform.position = startPos_Ball;
+            leftSliderforBall.position = startPos_L_Slider;
+            rightSliderforBall.position = startPos_R_Slider;
+            ball_Veloc = 0f;
 
-        if (other.gameObject.tag == "Buildings")
+
+
+        }
+        /*if (other.gameObject.tag == "Buildings")
         {
           //  Debug.Log("turn around");
-        }
+        }*/
     }
 
 

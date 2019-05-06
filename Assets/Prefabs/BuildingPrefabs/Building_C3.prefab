@@ -163,8 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4376909143386375399}
-  - component: {fileID: 1532423602692216141}
-  - component: {fileID: 4344708497481738849}
+  - component: {fileID: 7839147749211961454}
   m_Layer: 15
   m_Name: Building_C3
   m_TagString: Building
@@ -189,20 +188,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 450, z: 270}
---- !u!65 &1532423602692216141
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4374973790458668611}
-  m_Material: {fileID: 13400000, guid: 86fc0884571bb44e6a3e54077e2265db, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6969424, y: 4.0825167, z: 2.1417572}
-  m_Center: {x: -0.19102703, y: 1.5412987, z: 1.5583233}
---- !u!114 &4344708497481738849
+--- !u!114 &7839147749211961454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,13 +197,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4374973790458668611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172744ee832b54f40b645ca0decc4b82, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d304a6adf5f4cf09f5618454ee92bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingHasBeenHit: 0
-  buildingRemovalDelay: 0
-  myBuilingMeshRenderIsOn: 0
-  myFailingHologramMeshRendIsOn: 0
+  letter: 2
+  height: 4
 --- !u!1001 &2952171642478467853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -309,8 +293,10 @@ PrefabInstance:
         type: 3}
       propertyPath: myBuildingCollisionFXScript
       value: 
-      objectReference: {fileID: 4344708497481738849}
-    m_RemovedComponents: []
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1396189431111279025, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
+    - {fileID: 1396189431111279034, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
 --- !u!4 &4294317022271240881 stripped
 Transform:

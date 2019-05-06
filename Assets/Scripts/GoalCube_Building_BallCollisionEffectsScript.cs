@@ -36,6 +36,12 @@ public class GoalCube_Building_BallCollisionEffectsScript : MonoBehaviour
         if (other.gameObject.tag == "Ball")
         {
             buildingHasBeenHit = true;
+            Collider[] colliders = GetComponentsInChildren<Collider>();
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                colliders[i].enabled = false;
+
+            }
         }
 
     } //end OnTriggerEnter function
@@ -49,7 +55,7 @@ public class GoalCube_Building_BallCollisionEffectsScript : MonoBehaviour
             {
                 myBuildingMeshRender.enabled = false;
             }
-                this.gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
 
             foreach (Transform child in transform)
             {

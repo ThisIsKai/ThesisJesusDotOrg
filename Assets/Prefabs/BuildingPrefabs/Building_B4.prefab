@@ -88,8 +88,7 @@ GameObject:
   - component: {fileID: 8596293236343277538}
   - component: {fileID: 8587161425629779700}
   - component: {fileID: 8577341114847687528}
-  - component: {fileID: 8627656709417165222}
-  - component: {fileID: 3970653569512368926}
+  - component: {fileID: 1107576998810874088}
   m_Layer: 15
   m_Name: Building_B4
   m_TagString: Building
@@ -158,20 +157,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8627656709417165222
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8600348964738887372}
-  m_Material: {fileID: 13400000, guid: 86fc0884571bb44e6a3e54077e2265db, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.7941437, y: 5.887741, z: 7.6638227}
-  m_Center: {x: -0.0000005960464, y: -0.046795305, z: 3.8319113}
---- !u!114 &3970653569512368926
+--- !u!114 &1107576998810874088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,13 +166,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8600348964738887372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172744ee832b54f40b645ca0decc4b82, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d304a6adf5f4cf09f5618454ee92bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingHasBeenHit: 0
-  buildingRemovalDelay: 0
-  myBuilingMeshRenderIsOn: 0
-  myFailingHologramMeshRendIsOn: 0
+  letter: 1
+  height: 2
 --- !u!1001 &2546405174858878490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,8 +262,10 @@ PrefabInstance:
         type: 3}
       propertyPath: myBuildingCollisionFXScript
       value: 
-      objectReference: {fileID: 3970653569512368926}
-    m_RemovedComponents: []
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1396189431111279025, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
+    - {fileID: 1396189431111279034, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
 --- !u!4 &3474215814178336678 stripped
 Transform:

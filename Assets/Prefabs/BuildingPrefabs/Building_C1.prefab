@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3766931130036327562}
-  - component: {fileID: 6723804892864493291}
-  - component: {fileID: 7033014437900132639}
+  - component: {fileID: 724553150000012571}
   m_Layer: 15
   m_Name: Building_C1
   m_TagString: Building
@@ -35,20 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
---- !u!65 &6723804892864493291
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3768443274075289134}
-  m_Material: {fileID: 13400000, guid: 86fc0884571bb44e6a3e54077e2265db, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.826807, y: 3.9451826, z: 2.1578836}
-  m_Center: {x: -0.22200261, y: 1.6254605, z: 1.590497}
---- !u!114 &7033014437900132639
+--- !u!114 &724553150000012571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,13 +43,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3768443274075289134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172744ee832b54f40b645ca0decc4b82, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d304a6adf5f4cf09f5618454ee92bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingHasBeenHit: 0
-  buildingRemovalDelay: 0
-  myBuilingMeshRenderIsOn: 0
-  myFailingHologramMeshRendIsOn: 0
+  letter: 2
+  height: 3
 --- !u!1 &3768770475898741882
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,8 +293,10 @@ PrefabInstance:
         type: 3}
       propertyPath: myBuildingCollisionFXScript
       value: 
-      objectReference: {fileID: 7033014437900132639}
-    m_RemovedComponents: []
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1396189431111279025, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
+    - {fileID: 1396189431111279034, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
 --- !u!4 &5777111720793272641 stripped
 Transform:

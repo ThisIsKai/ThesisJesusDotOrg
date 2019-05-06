@@ -86,8 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6003328900464734729}
-  - component: {fileID: 2409821650514086683}
-  - component: {fileID: 2533874256608777477}
+  - component: {fileID: 84280776210853515}
   m_Layer: 15
   m_Name: Building_C4
   m_TagString: Building
@@ -112,20 +111,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 450, z: 270}
---- !u!65 &2409821650514086683
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6006389054064808109}
-  m_Material: {fileID: 13400000, guid: 86fc0884571bb44e6a3e54077e2265db, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7889194, y: 3.5739012, z: 2.1703384}
-  m_Center: {x: -0.1813151, y: 1.7409905, z: 1.5719653}
---- !u!114 &2533874256608777477
+--- !u!114 &84280776210853515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,13 +120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6006389054064808109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172744ee832b54f40b645ca0decc4b82, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d304a6adf5f4cf09f5618454ee92bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingHasBeenHit: 0
-  buildingRemovalDelay: 0
-  myBuilingMeshRenderIsOn: 0
-  myFailingHologramMeshRendIsOn: 0
+  letter: 2
+  height: 3
 --- !u!1 &6006558302694589177
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,8 +293,10 @@ PrefabInstance:
         type: 3}
       propertyPath: myBuildingCollisionFXScript
       value: 
-      objectReference: {fileID: 2533874256608777477}
-    m_RemovedComponents: []
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1396189431111279025, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
+    - {fileID: 1396189431111279034, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
 --- !u!4 &8519519132248566423 stripped
 Transform:

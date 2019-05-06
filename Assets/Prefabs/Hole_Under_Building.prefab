@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4310405165414652774}
   - component: {fileID: 4310405165414652775}
   - component: {fileID: 4310405165414652776}
-  - component: {fileID: 4310405165414652777}
   m_Layer: 16
   m_Name: Hole_Under_Building
   m_TagString: Untagged
@@ -79,19 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4310405165414652777
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4310405165414652778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4310405165930694488
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +93,7 @@ GameObject:
   - component: {fileID: 4310405165930694486}
   m_Layer: 16
   m_Name: Hole_Under_Building_trigger
-  m_TagString: Untagged
+  m_TagString: Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +168,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 11.08}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4310405165930694486
 MonoBehaviour:

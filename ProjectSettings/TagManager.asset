@@ -12,6 +12,7 @@ TagManager:
   - Bar
   - Building
   - ScoreText
+  - Hole
   layers:
   - Default
   - TransparentFX
