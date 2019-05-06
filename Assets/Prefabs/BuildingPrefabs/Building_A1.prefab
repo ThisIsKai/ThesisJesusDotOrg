@@ -258,6 +258,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1396189431111279038, guid: 83d6d37e9ba5644b7adb3554756168ea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1396189431111279037, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
       propertyPath: hologramCollider

@@ -24,18 +24,22 @@ public class GameManager : MonoBehaviour {
 	public KeyCode camSwapKey;
 	public Camera ballCamera;
 	public Camera boardCamera;
-    int goalsInLevel;
+    public int goalsInLevel;
     int goalsHit;
-    int goalsRemaining;
+    public int goalsRemaining;
     public int lives = 3;
     public GameObject gameOverScreen;
+    public TextMesh highScoreText;
+    public TextMesh yourScoreText;
+    private float highScore;
 
-
-	public TextMeshPro cubesLeftText;
+    public TextMeshPro cubesLeftText;
 
 
 	void Awake () {
 		Instance = this;
+        highScore = PlayerPrefs.GetFloat("highscore", 0);
+
 	}
 
 	// Use this for initialization
@@ -43,7 +47,7 @@ public class GameManager : MonoBehaviour {
 		
 		ballCamera = Camera.main; //assigning the camera
 		cubesLeftText.gameObject.SetActive(true);
-        goalsInLevel = GameObject.FindGameObjectsWithTag("Goal").Length;
+        //goalsInLevel = GameObject.FindGameObjectsWithTag("Goal").Length;
 
 
         current_score = 0;	//get cubes number
@@ -58,7 +62,7 @@ public class GameManager : MonoBehaviour {
 	void Update(){
 		if (ballCamera.enabled == true){
 			cubesLeftText.gameObject.SetActive(true);
-            goalsRemaining = GameObject.FindGameObjectsWithTag("Building").Length;
+            //goalsRemaining = GameObject.FindGameObjectsWithTag("Building").Length;
             current_score = goalsInLevel - goalsRemaining;
             cubesLeftText.text = "Buildings Destroyed : " + current_score + "/" + goalsInLevel; //telling the text to include the current number of balls for the player
 			}
@@ -73,6 +77,10 @@ public class GameManager : MonoBehaviour {
         if (lives == 0)
         {
             gameOverScreen.SetActive(true);
+            highScoreText.text = "HIGH SCORE: " + highScore;
+            yourScoreText.text = "SCORE: " + current_score;
+            if (current_score > highScore)
+                PlayerPrefs.SetFloat("highscore", current_score);
         }
     }//END UPDATE
 

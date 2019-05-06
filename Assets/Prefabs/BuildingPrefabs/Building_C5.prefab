@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4807899154188458374}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.21, y: 0, z: 1.58}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.733, y: 0.617, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4805380424722857398}
@@ -86,8 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4805380424722857398}
-  - component: {fileID: 1643652215726271971}
-  - component: {fileID: 1130426615228264269}
+  - component: {fileID: 4806857299964073403}
   m_Layer: 15
   m_Name: Building_C5
   m_TagString: Building
@@ -112,20 +111,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
---- !u!65 &1643652215726271971
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4808372017489387282}
-  m_Material: {fileID: 13400000, guid: 86fc0884571bb44e6a3e54077e2265db, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7907364, y: 4.030683, z: 2.0968328}
-  m_Center: {x: -0.17396212, y: 1.5153402, z: 1.5918841}
---- !u!114 &1130426615228264269
+--- !u!114 &4806857299964073403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,13 +120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4808372017489387282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172744ee832b54f40b645ca0decc4b82, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d304a6adf5f4cf09f5618454ee92bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingHasBeenHit: 0
-  buildingRemovalDelay: 7
-  myBuilingMeshRenderIsOn: 0
-  myFailingHologramMeshRendIsOn: 0
+  letter: 2
+  height: 3
 --- !u!1 &4808625221860396358
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4808625221860396358}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.25, y: 0.52, z: 2.59}
+  m_LocalPosition: {x: 0.54, y: 0.52, z: 0.8}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4805380424722857398}
@@ -233,7 +217,7 @@ PrefabInstance:
     - target: {fileID: 1396189431111279036, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.209
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1396189431111279036, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
@@ -243,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 1396189431111279036, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.562
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1396189431111279036, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
@@ -300,11 +284,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.5257692
       objectReference: {fileID: 0}
+    - target: {fileID: 1396189431111279038, guid: 83d6d37e9ba5644b7adb3554756168ea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1396189431111279037, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
       propertyPath: hologramCollider
       value: 
-      objectReference: {fileID: 6094320375567908381}
+      objectReference: {fileID: 0}
     - target: {fileID: 1396189431111279037, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
       propertyPath: myHologramChild
@@ -324,13 +313,20 @@ PrefabInstance:
         type: 3}
       propertyPath: myBuildingCollisionFXScript
       value: 
-      objectReference: {fileID: 1130426615228264269}
+      objectReference: {fileID: 0}
     - target: {fileID: 1396189431111279037, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
       propertyPath: sourceObject
       value: 
-      objectReference: {fileID: 4808372017489387282}
-    m_RemovedComponents: []
+      objectReference: {fileID: 4807899154188458374}
+    - target: {fileID: 1396189431111279037, guid: 83d6d37e9ba5644b7adb3554756168ea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1396189431111279025, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
+    - {fileID: 1396189431111279034, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
 --- !u!1 &6094320375567908380 stripped
 GameObject:
@@ -347,12 +343,6 @@ Transform:
 --- !u!23 &6094320375567908370 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1396189431111279038, guid: 83d6d37e9ba5644b7adb3554756168ea,
-    type: 3}
-  m_PrefabInstance: {fileID: 5184526028569878444}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &6094320375567908381 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 1396189431111279025, guid: 83d6d37e9ba5644b7adb3554756168ea,
     type: 3}
   m_PrefabInstance: {fileID: 5184526028569878444}
   m_PrefabAsset: {fileID: 0}

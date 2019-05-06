@@ -106,6 +106,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPrefabs:
   - {fileID: 4237956050743818942, guid: 0ef391b46c43647aa9a14085b3a98f03, type: 3}
+  - {fileID: 1988759134993852976, guid: 5fc674b5b4d654c908196ec3be802659, type: 3}
+  - {fileID: 484303258592780009, guid: b0fcfd99eebaf46a7b9be47a3e2d05d8, type: 3}
+  - {fileID: 697526193832438063, guid: f7903679fae044d8eade60b469348b09, type: 3}
+  - {fileID: 6851066719250906856, guid: ecee34cedf77c44fd96f8cb9e4f5a952, type: 3}
+  - {fileID: 7719344652474713620, guid: 1f293b6bc8b9f427e95b1e530117843a, type: 3}
+  - {fileID: 3927687067597165202, guid: ccce8100f801645ad9df22dec41c9dde, type: 3}
+  - {fileID: 8600348964738887372, guid: 76926ab90f3f34ba499a5fa3be28eb9a, type: 3}
+  - {fileID: 3768443274075289134, guid: fa6313d3abe0040419158814739b120b, type: 3}
+  - {fileID: 3341308815971820847, guid: 2d70a8dd24ed74e1abfcde712c97a04b, type: 3}
+  - {fileID: 4374973790458668611, guid: 2d272ef648bcb4e9481f7a44c75e3128, type: 3}
+  - {fileID: 6006389054064808109, guid: 57d410d1a680f4081b75940161ca63d5, type: 3}
+  - {fileID: 4808372017489387282, guid: 3d99d03fe1ab04b30b27d63715c52fcc, type: 3}
   holePrefab: {fileID: 4310405165414652778, guid: 7315a67a3539144b2a8c247632bdec0c,
     type: 3}
   flashTimer: 180
