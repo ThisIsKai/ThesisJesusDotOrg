@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class MainCameraScript : MonoBehaviour {
 
-	public Camera mainCamera;
-	public float controlMidPointY;
+        public Camera mainCamera;
+        public float controlMidPointY;
 
-	public GameObject ballObject; //the ball
-	public GameObject leftControl; //the left control
-	public GameObject rightControl; //the right control
-	public float camPosLockX; 					// the fixed/locked-in x pos of the camera
-	public float camPosLockZ; 					// the fixed/locked-in z poz of the camera
-    public float movingCamX;
-	// Use this for initialization
+        public GameObject ballObject;           //the ball
+        public GameObject leftControl;           //the left control
+        public GameObject rightControl;         //the right control
+        public float camPosLockX; 					// the fixed/locked-in x pos of the camera
+        public float camPosLockZ; 					// the fixed/locked-in z poz of the camera
+        public float movingCamX;
+
+
 	void Start () {
 		
 	mainCamera = Camera.main; //assigning the camera

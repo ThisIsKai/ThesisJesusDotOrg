@@ -8,24 +8,40 @@ public class BallScript : MonoBehaviour {   //  BALL SCRIPT: {ATTACHED TO BALL}
 
     public Transform leftSliderforBall;             // the transform of the left slider object
     public Transform rightSliderforBall;            // the transform of the right slider object
-    public float ball_Accel;                        // the acceleration value of the ball
-    public float ball_Veloc;                        // the velocity of the ball
-    public float accel_TuningVal;                   // a value for tuning/modifying the acceleration value of the ball
-    public float drag_TuningVal;                    // a value for tuning/modifying the drag force on the ball
+   
     public float boardWidth;                        // the width (in world space units) of the board
-    public float bounce_TuningVal;
+
     private Vector3 startPos_Ball;
     private Vector3 startPos_L_Slider;
     private Vector3 startPos_R_Slider;
 
+    public float bounce_TuningVal;
+
+    public float ball_Accel;                        // the acceleration value of the ball
+    public float ball_Veloc;                        // the velocity of the ball
+    public float accel_TuningVal;                   // a value for tuning/modifying the acceleration value of the ball
+    public float drag_TuningVal;                    // a value for tuning/modifying the drag force on the ball
+    public GameObject resetScreen;
+    //public GameObject ballResetScreen;
+    //public TextMesh resetCountdownText;
+    //public float resetTimer;
+    //public float resetScreenTime;
+    //public GameObject resetScreenObj;
 
     private void Start()
     {
         startPos_Ball = transform.position;
         startPos_L_Slider = leftSliderforBall.position;
         startPos_R_Slider = rightSliderforBall.position;
+       
+       TuningControlScript tuner = (TuningControlScript)Resources.Load("TuningData");
 
-}
+        ball_Accel = tuner.ball_Accel;
+        bounce_TuningVal = tuner.bounce_TuningVal;
+        ball_Veloc = tuner.ball_Veloc;
+        drag_TuningVal = tuner.drag_TuningVal;
+
+    }
     private void FixedUpdate()
     {
         MoveBallWithSimulatedPhysics();
@@ -87,23 +103,38 @@ public class BallScript : MonoBehaviour {   //  BALL SCRIPT: {ATTACHED TO BALL}
             GameManager.Instance.lives--;
             if (GameManager.Instance.lives == 0)
                 return;
+            resetScreen.SetActive(true);
             transform.position = startPos_Ball;
             leftSliderforBall.position = startPos_L_Slider;
             rightSliderforBall.position = startPos_R_Slider;
             ball_Veloc = 0f;
-
-
+            //ShowResetBallScreen();
 
         }
-        /*if (other.gameObject.tag == "Buildings")
-        {
-          //  Debug.Log("turn around");
-        }*/
     }
+    //private void ShowResetBallScreen()
+    //{
+
+        //    if (resetTimer <= resetScreenTime)
+        //    {
+           
+        //        resetTimer = resetTimer + 1;
+
+        //    ballResetScreen.SetActive(true);
+        //    resetCountdownText.text = "Next Ball";
+
+        //}
+        //    else
+        //    {
+          
+        //        this.gameObject.SetActive(false);
+        //    }
+
+        //}
 
 
-    // END FIXEDUPDATE FUNCTION
-} // END SCRIPT "BALL SCRIPT"
+        // END FIXEDUPDATE FUNCTION
+    } // END SCRIPT "BALL SCRIPT"
 
 
 

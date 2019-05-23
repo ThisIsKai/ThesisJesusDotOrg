@@ -10,11 +10,10 @@ public class VisualEffectsScript : MonoBehaviour // {ATTACHED TO AN OBJECT THAT 
     private MeshRenderer myBuildingMeshRend;
     private MeshRenderer myHologramMeshRend;
     private GameObject myHologramObj;
-    public GoalCube_Building_BallCollisionEffectsScript myBuildingCollisionFXScript;
 
     float coinFlip;
     public float coinFlipChance;
-
+    public float modifiedCoinFlip;
     private bool collider_On;
    
      private bool myBuildingMeshRend_On;
@@ -57,6 +56,8 @@ public class VisualEffectsScript : MonoBehaviour // {ATTACHED TO AN OBJECT THAT 
         collider_On = true;
         myBuildingMeshRend_On = true;
         myHologramMeshRend.enabled = false;
+        modifiedCoinFlip = coinFlip;
+
         //setRandomizedFrameValue = false;
        // waitSomeMoreFrames = false;
 
@@ -66,54 +67,44 @@ public class VisualEffectsScript : MonoBehaviour // {ATTACHED TO AN OBJECT THAT 
 
     void FixedUpdate()
     {   
-//        if (myBuildingCollisionFXScript.buildingHasBeenHit == true) 
-        //    {
-                if (myBuildingMeshRend_On == true)
-                {
-                    if (jitter_Scale == true) { JitterScale(); }
-                    if (jitter_Position == true) { JitterPosition(); }
-                }
-
-                if (collider_On == false)
-                {
-                    TurnOffMyCollider();
-                }
-
-                coinFlip = Random.Range(0f, 1.0f);
-
-                if (coinFlip <= coinFlipChance)
-        {
-            if (myBuildingMeshRend != null)
+            if (myBuildingMeshRend_On == true)
             {
-                TurnOffMyBuildingMeshRender();
-                myBuildingMeshRend_On = false;
-                TurnOnMyHologramRender();
+                if (jitter_Scale == true) { JitterScale(); }
+                if (jitter_Position == true) { JitterPosition(); }
             }
-                    }
-                    else
-                    {
-            if (myBuildingMeshRend != null)
+
+
+            if (collider_On == false)
             {
-                TurnOnMyBuildingMeshRender();
+                TurnOffMyCollider();
+            }
+
+
+            coinFlip = Random.Range(0f, 2.0f);
+
+            if ((coinFlip >= coinFlipChance) || (modifiedCoinFlip >= coinFlipChance))
+        {
+                 if (myBuildingMeshRend != null)
+                 {
+                    modifiedCoinFlip = modifiedCoinFlip + Random.Range(0.0f, .005f);
+                    TurnOffMyBuildingMeshRender();
+                    myBuildingMeshRend_On = false;
+                    TurnOnMyHologramRender();
+                  }
+  
+
+        }
+            else
+            {
+
+                if (myBuildingMeshRend != null)
+                {
+                   TurnOnMyBuildingMeshRender();
                 myBuildingMeshRend_On = true;
                 TurnOffMyHologramMeshRender();
             }
-                    }
+            }
 
-                //if (collider_On == false)
-                //{
-                //    if (waitSomeMoreFrames == true)
-                //    {
-                //        RunFrameDelayTimer();
-                //    } else if ((meshRend_On == true) && (waitSomeMoreFrames == false))
-                //    {
-                //        forcefieldMeshRend.enabled = false;
-                //        RunFrameDelayTimer();
-                //    }
-                //}
-      //  }
-      //  else
-     //   {
             if (myBuildingMeshRend_On == true)
             {
                 myHologramMeshRend.enabled = false;
@@ -148,22 +139,6 @@ public class VisualEffectsScript : MonoBehaviour // {ATTACHED TO AN OBJECT THAT 
     }
 
 
-    //=================================================================== 
-    //void RunFrameDelayTimer()
-    //{
-    //    if (setRandomizedFrameValue == false){
-    //        frameDelay_RandomizedValue = frameDelay_BaseValue + Random.Range(frameDelayRandomizer_Min, frameDelayRandomizer_Max);
-    //        setRandomizedFrameValue = true;
-    //    }
-    //      if (setRandomizedFrameValue == true)
-    //    {
-    //        if (frameDelayTimer <= frameDelay_RandomizedValue)
-    //        {
-    //            frameDelayTimer = frameDelayTimer + 1;
-    //        }
-    //        else { waitSomeMoreFrames = false; }
-    //    }
-    //}
     //=================================================================== 
 
     void JitterScale()

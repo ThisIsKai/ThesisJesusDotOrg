@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5271035534305915617}
   - component: {fileID: 2413652577781161622}
-  - component: {fileID: 169435423046104142}
+  - component: {fileID: 6729657324814683828}
   m_Layer: 15
   m_Name: Building_D4
   m_TagString: Building
@@ -125,7 +125,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.8760679, y: 4.668963, z: 1.7142407}
   m_Center: {x: 0.52788854, y: 2.014241, z: -0.0000010927519}
---- !u!114 &169435423046104142
+--- !u!114 &6729657324814683828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,13 +134,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5273823226149841133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172744ee832b54f40b645ca0decc4b82, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d304a6adf5f4cf09f5618454ee92bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingHasBeenHit: 0
-  buildingRemovalDelay: 0
-  myBuilingMeshRenderIsOn: 0
-  myFailingHologramMeshRendIsOn: 0
+  letter: 3
+  height: 4
 --- !u!1 &5274170483667902749
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,21 +298,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.580528
       objectReference: {fileID: 0}
-    - target: {fileID: 1396189431111279034, guid: 83d6d37e9ba5644b7adb3554756168ea,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1396189431111279037, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
       propertyPath: myBuildingCollisionFXScript
       value: 
-      objectReference: {fileID: 169435423046104142}
+      objectReference: {fileID: 0}
     - target: {fileID: 1396189431111279037, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
       propertyPath: sourceObject
       value: 
       objectReference: {fileID: 5273823226149841133}
+    - target: {fileID: 1396189431111279034, guid: 83d6d37e9ba5644b7adb3554756168ea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83d6d37e9ba5644b7adb3554756168ea, type: 3}
 --- !u!4 &4716244784379289504 stripped

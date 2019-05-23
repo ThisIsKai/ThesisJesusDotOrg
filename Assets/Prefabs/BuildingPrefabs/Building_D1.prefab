@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7719665054590619417}
   - component: {fileID: 4178442273352127918}
-  - component: {fileID: 892810921127430421}
+  - component: {fileID: 5025294659004690058}
   m_Layer: 15
   m_Name: Building_D1
   m_TagString: Building
@@ -125,7 +125,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0437708, y: 4.554789, z: 1.7475358}
   m_Center: {x: 0.5218856, y: 2.2635295, z: -0.0000002980232}
---- !u!114 &892810921127430421
+--- !u!114 &5025294659004690058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,13 +134,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7725884320409228565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172744ee832b54f40b645ca0decc4b82, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d304a6adf5f4cf09f5618454ee92bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingHasBeenHit: 0
-  buildingRemovalDelay: 0
-  myBuilingMeshRenderIsOn: 0
-  myFailingHologramMeshRendIsOn: 0
+  letter: 3
+  height: 2
 --- !u!1 &7725892673365828265
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +302,7 @@ PrefabInstance:
         type: 3}
       propertyPath: myBuildingCollisionFXScript
       value: 
-      objectReference: {fileID: 892810921127430421}
+      objectReference: {fileID: 0}
     - target: {fileID: 1396189431111279037, guid: 83d6d37e9ba5644b7adb3554756168ea,
         type: 3}
       propertyPath: sourceObject

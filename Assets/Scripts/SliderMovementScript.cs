@@ -8,33 +8,51 @@ public class SliderMovementScript : MonoBehaviour {  // SLIDER MOVEMENT SCRIPT: 
 
     //__________________________________________________________________________________________________________________________________________________________
 
-    public bool leftFalseRightTrue;         // a bool to track if the game object is for the left or right slider
+    public bool leftFalseRightTrue;                 // a bool to track if the game object is for the left or right slider
    
-    public float minHeight;                 // the minimum y value for the slider
-    public float maxHeight;                 // the maximum y value for the slider
+    public float minHeight;                         // the minimum y value for the slider
+    public float maxHeight;                         // the maximum y value for the slider
 
-    public float rate;                      // the rate modifier, altering the force of each movement
+    public float rate;                              // the rate modifier, altering the force of each movement
 
     private KeyCode leftUp = KeyCode.Q;             // the keycode for the 'Left Up' command, assigned in the inspector
     private KeyCode leftDown = KeyCode.A;           // the keycode for the 'Left Down' command, assigned in the inspector
     private KeyCode rightUp = KeyCode.O;            // the keycode for the 'Right Up' command, assigned in the inspector
     private KeyCode rightDown = KeyCode.L;          // the keycode for the 'Right Down' command, assigned in the inspector
 
-    public float max_KeyPressLength;        // the maximum keypress length (in frames) that will register before needing keyUp to reset, set in the inspector
+    public float max_KeyPressLength;                // the maximum keypress length (in frames) that will register before needing keyUp to reset, set in the inspector
+    public float keyPressValueDecay;
 
     private float leftUpTimer;                      // a timer keeping track if how long the "left up" key has been held down continuously for
     private float leftDownTimer;                    // a timer keeping track if how long the "left down" key has been held down continuously for
     private float rightUpTimer;                     // a timer keeping track if how long the "right up" key has been held down continuously for
     private float rightDownTimer;                   // a timer keeping track if how long the "right down" key has been held down continuously for
-//__________________________________________________________________________________________________________________________________________________________________________________________________
+    public AnimationCurve impulseCurve;
+
+    //__________________________________________________________________________________________________________________________________________________________________________________________________
 
     private void Start() // START FUNCTION
     {
-    leftUpTimer = 0f ;          // set the timer to zero at the start
-    leftDownTimer = 0f;         // set the timer to zero at the start
-    rightUpTimer = 0f;          // set the timer to zero at the start
-    rightDownTimer = 0f;        // set the timer to zero at the start
-    }//END START FUNCTION
+        leftUpTimer = 0f ;          // set the timer to zero at the start
+        leftDownTimer = 0f;         // set the timer to zero at the start
+        rightUpTimer = 0f;          // set the timer to zero at the start
+        rightDownTimer = 0f;        // set the timer to zero at the start
+
+        TuningControlScript tuner = (TuningControlScript)Resources.Load("TuningData");
+
+            minHeight = tuner.minHeight;
+            maxHeight = tuner.maxHeight;       
+            rate=tuner.rate;                  
+            leftUp = tuner.leftUp;
+            leftDown = tuner.leftDown;
+            rightUp = tuner.rightUp;
+            rightDown = tuner.rightDown;
+            max_KeyPressLength = tuner.max_KeyPressLength;
+            keyPressValueDecay = tuner.keyPressValueDecay;
+            impulseCurve = tuner.impulseCurve;
+}//END START FUNCTION
+
+
 
     //__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
     private void FixedUpdate()
@@ -46,7 +64,9 @@ public class SliderMovementScript : MonoBehaviour {  // SLIDER MOVEMENT SCRIPT: 
         {
             if ((Input.GetKey(leftUp)) && (leftUpTimer <= max_KeyPressLength)) // IF THE LEFTUP KEY PRESSED & TIMER IS UNDER THE MAX KEYPRESS LENGTH
             {
-                transform.position += Vector3.up * rate * Time.deltaTime;
+
+                float myRate = rate * impulseCurve.Evaluate(leftUpTimer / max_KeyPressLength);
+                transform.position += Vector3.up * myRate * Time.deltaTime;
                 leftUpTimer = leftUpTimer + 1;
 
                 if (transform.position.y >= maxHeight)
@@ -64,7 +84,8 @@ public class SliderMovementScript : MonoBehaviour {  // SLIDER MOVEMENT SCRIPT: 
             //***LEFT Down
             if ((Input.GetKey(leftDown)) && (leftDownTimer <= max_KeyPressLength)) // IF THE LEFTDOWN KEY PRESSED & TIMER IS UNDER THE MAX KEYPRESS LENGTH
             {
-                transform.position += Vector3.down * rate * Time.deltaTime;
+                float myRate = rate * impulseCurve.Evaluate(leftDownTimer / max_KeyPressLength);
+                transform.position += Vector3.down * myRate * Time.deltaTime;
                 leftDownTimer = leftDownTimer + 1;
 
                 if (transform.position.y <= minHeight)
@@ -84,7 +105,9 @@ public class SliderMovementScript : MonoBehaviour {  // SLIDER MOVEMENT SCRIPT: 
 
             if ((Input.GetKey(rightUp)) && (rightUpTimer <= max_KeyPressLength)) // IF THE RIGHTUP KEY PRESSED & TIMER IS UNDER THE MAX KEYPRESS LENGTH
             {
-                transform.position += Vector3.up * rate * Time.deltaTime;
+                float myRate = rate * impulseCurve.Evaluate(rightUpTimer / max_KeyPressLength);
+                transform.position += Vector3.up * myRate * Time.deltaTime;
+
                 rightUpTimer = rightUpTimer + 1;
 
                 if (transform.position.y >= maxHeight)
@@ -102,7 +125,10 @@ public class SliderMovementScript : MonoBehaviour {  // SLIDER MOVEMENT SCRIPT: 
 
             if ((Input.GetKey(rightDown)) && (rightDownTimer <= max_KeyPressLength)) // IF THE RIGHTDOWN KEY PRESSED & TIMER IS UNDER THE MAX KEYPRESS LENGTH
             {
-                transform.position += Vector3.down * rate * Time.deltaTime;
+
+                float myRate = rate * impulseCurve.Evaluate(rightDownTimer / max_KeyPressLength);
+                transform.position += Vector3.down * myRate * Time.deltaTime;
+
                 rightDownTimer = rightDownTimer + 1;
 
                 if (transform.position.y <= minHeight)
@@ -116,6 +142,8 @@ public class SliderMovementScript : MonoBehaviour {  // SLIDER MOVEMENT SCRIPT: 
             {
                 rightDownTimer = 0f;
             }//END IF GET KEY UP FOR RIGHT DOWN
+
+
 
         }// END IF RIGHT PLAYER
 

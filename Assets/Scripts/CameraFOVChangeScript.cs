@@ -18,6 +18,7 @@ public class CameraFOVChangeScript : MonoBehaviour
         {
             Camera.main.fieldOfView = baseFOV + Mathf.Sin(timer * speed) * changedFOV;
             timer += Time.deltaTime;
+          
         }
     }//end Update Function
 
